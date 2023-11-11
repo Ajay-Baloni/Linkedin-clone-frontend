@@ -119,7 +119,7 @@
           </div>
         </div>
 
-        <div class="sidebar-activity">
+        <div class="sidebar-activity" id="sidebarActivity">
           <h3>RECENT</h3>
           <a href="#"><img src="images/recent.png" />Web Development</a>
           <a href="#"><img src="images/recent.png" />User Interface</a>
@@ -140,6 +140,7 @@
             <a href="#">Discover more</a>
           </div>
         </div>
+        <p id="showMoreLink" onclick="toggleActivity()">Show more <b>+</b></p>
       </div>
 
       <!-- -----main-content------ -->
@@ -545,8 +546,24 @@
     <script>
       let profileMenu = document.getElementById("profileMenu");
 
+      //toggle menu for navbar
       function toggleMenu() {
         profileMenu.classList.toggle("open-menu");
+      }
+    </script>
+
+    <script>
+      let sidebarActivity = document.getElementById("sidebarActivity");
+      let showMoreLink = document.getElementById("showMoreLink");
+
+      function toggleActivity() {
+        sidebarActivity.classList.toggle("open-activity");
+
+        if (sidebarActivity.classList.contains("open-activity")) {
+          showMoreLink.innerHTML = "Show less <b>-</b>";
+        } else {
+          showMoreLink.innerHTML = "Show more <b>+</b>";
+        }
       }
     </script>
   </body>
